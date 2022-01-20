@@ -6,10 +6,10 @@ public class CreateCatalogCommand extends Command {
     private String catalogId;
     private String name;
 
-    public CreateCatalogCommand(String catalogId, String name) {
+/*    public CreateCatalogCommand(String catalogId, String name) {
         this.catalogId = catalogId;
         this.name = name;
-    }
+    }*/
 
     public CreateCatalogCommand() {
     }

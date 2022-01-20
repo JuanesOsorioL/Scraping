@@ -39,9 +39,15 @@ public class CourseHandle {
     @ConsumeEvent(value = "sofkau.catalog.MovieAssigned", blocking = true)
     void consumeLessonAdded(MovieAssigned event) {
         BasicDBObject document = new BasicDBObject();
-        document.put("movie."+event.getMovieId()+".name",event.getName());
-        document.put("movie."+event.getMovieId()+".date", Instant.now());
+        document.put("movie."+event.getName()+".name",event.getName());
+        document.put("movie."+event.getName()+".date", Instant.now());
+        document.put("movie."+event.getName()+".descripcion", event.getDescription());
+        document.put("movie."+event.getName()+".duracion", event.getDuration());
+        document.put("movie."+event.getName()+".genero", event.getGender());
+        document.put("movie."+event.getName()+".año", event.getYear());
+        document.put("movie."+event.getName()+".url", event.getPath());
 
+        System.out.println("holaaaaaaaaaaaa " + event.getName());
         BasicDBObject updateObject = new BasicDBObject();
         updateObject.put("$set", document);
 

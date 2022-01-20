@@ -9,10 +9,12 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import javax.enterprise.context.Dependent;
 import java.io.IOException;
 import java.util.List;
 import java.util.function.Function;
 
+@Dependent
 public class ExtraerCatalogUseCase implements Function<AddMovieCommand, List<DomainEvent>> {
 
         private final EventStoreRepository repository;

@@ -12,16 +12,6 @@ public class AddMovieCommand extends Command {
     private String gender;
     private String path;
 
-    public AddMovieCommand(String catalogId, String movieId, String name, String year, String duration, String description, String gender, String path) {
-        this.catalogId = catalogId;
-        this.movieId = movieId;
-        this.name = name;
-        this.year = year;
-        this.duration = duration;
-        this.description = description;
-        this.gender = gender;
-        this.path = path;
-    }
 
     public AddMovieCommand() {
     }

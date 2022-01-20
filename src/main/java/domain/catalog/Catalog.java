@@ -32,13 +32,13 @@ public class Catalog extends AggregateRoot {
     }
 
     public void addMovie(String movieId, String name, String year, String duration, String description, String gender,String path){
-        Objects.requireNonNull(movieId);
+/*        Objects.requireNonNull(movieId);
         Objects.requireNonNull(name);
         Objects.requireNonNull(year);
         Objects.requireNonNull(duration);
         Objects.requireNonNull(description);
         Objects.requireNonNull(gender);
-        Objects.requireNonNull(path);
+        Objects.requireNonNull(path);*/
         appendChange(new MovieAssigned(movieId, name, year,duration,description,gender,path)).apply();
     }
 

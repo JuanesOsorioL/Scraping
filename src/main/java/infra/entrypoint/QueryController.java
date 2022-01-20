@@ -42,6 +42,6 @@ public class QueryController {
                 .getCollection("catalog")
                 .find()
                 .forEach(documentList::add);
-        return Response.ok(documentList.stream().findAny()).build();
+        return Response.ok(documentList).build();
     }
 }

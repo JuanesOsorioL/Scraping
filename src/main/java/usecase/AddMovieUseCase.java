@@ -8,6 +8,10 @@ import domain.catalog.command.AddMovieCommand;
 import domain.generic.DomainEvent;
 import domain.generic.EventStoreRepository;
 
+import javax.enterprise.context.Dependent;
+
+
+@Dependent
 public class AddMovieUseCase implements Function<AddMovieCommand, List<DomainEvent>> {
 
     private  final EventStoreRepository repository;

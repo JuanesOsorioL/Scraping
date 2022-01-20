@@ -3,16 +3,16 @@ package infra.handle;
 import domain.catalog.command.AddMovieCommand;
 import infra.generic.UseCaseHandle;
 import io.quarkus.vertx.ConsumeEvent;
-import usecase.AddMovieUseCase;
+import usecase.ExtraerCatalogUseCase;
 
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class AddLessonHandle extends UseCaseHandle {
 
-    private final AddMovieUseCase useCase;
+    private final ExtraerCatalogUseCase useCase;
 
-    public AddLessonHandle(AddMovieUseCase useCase) {
+    public AddLessonHandle(ExtraerCatalogUseCase useCase) {
         this.useCase = useCase;
     }
 
