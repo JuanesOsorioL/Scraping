@@ -1,8 +1,7 @@
-package domain.generic;
-
-
+package infra.generic;
 
 import com.google.gson.Gson;
+import domain.generic.DomainEvent;
 
 import java.util.Date;
 

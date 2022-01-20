@@ -36,7 +36,7 @@ public abstract class DomainEvent implements Serializable {
         this.correlationId = correlationId;
     }
 
-    public String getId() {
+    public String getMovieId() {
         return id;
     }
 

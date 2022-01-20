@@ -15,30 +15,34 @@ public class Catalog extends AggregateRoot {
 
     public Catalog(String catalogId, String name) {
         super(catalogId);
+        Objects.requireNonNull(name);
         subscribe(new CatalogEventChange(this));
         appendChange(new CatalogCreated(name)).apply();
     }
 
-    public void addMovie(String id, String name, String year, String duration, String description, String gender){
-        Objects.requireNonNull(id);
+    private Catalog(String catalogId){
+        super(catalogId);
+        subscribe(new CatalogEventChange(this));
+    }
+
+    public static Catalog from(String catalogId, List<DomainEvent> events){
+        var catalog = new Catalog(catalogId);
+        events.forEach(catalog::applyEvent);
+        return catalog;
+    }
+
+    public void addMovie(String movieId, String name, String year, String duration, String description, String gender,String path){
+        Objects.requireNonNull(movieId);
         Objects.requireNonNull(name);
         Objects.requireNonNull(year);
         Objects.requireNonNull(duration);
         Objects.requireNonNull(description);
         Objects.requireNonNull(gender);
-        appendChange(new MovieAssigned(id, name, year,duration,description,gender)).apply();
+        Objects.requireNonNull(path);
+        appendChange(new MovieAssigned(movieId, name, year,duration,description,gender,path)).apply();
     }
 
-    private Catalog(String id){
-        super(id);
-        subscribe(new CatalogEventChange(this));
-    }
 
-    public static Catalog from(String id, List<DomainEvent> events){
-        var catalog = new Catalog(id);
-        events.forEach(catalog::applyEvent);
-        return catalog;
-    }
 
     public Map<String, Movie> movies() {
         return movies;

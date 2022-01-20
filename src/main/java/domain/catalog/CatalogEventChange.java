@@ -15,8 +15,8 @@ public class CatalogEventChange implements EventChange {
         });
 
         listener((MovieAssigned event)-> {
-            var movie =  new Movie(event.getId(), event.getName(),event.getYear(),event.getDuration(),event.getDescription(),event.getGender());
-            catalog.movies.put(event.getId(), movie);
+            var movie =  new Movie(event.getMovieId(), event.getName(),event.getYear(),event.getDuration(),event.getDescription(),event.getGender(), event.getPath());
+            catalog.movies.put(event.getMovieId(), movie);
         });
 
     }
