@@ -30,9 +30,9 @@ public class QueryController {
                 .getCollection("catalog")
                 .find(Filters.eq("_id", catalogId))
                 .forEach(documentList::add);
-        return Response.ok(documentList.stream().findAny()).build();
+        return Response.ok(documentList).build();
     }
-
+//.stream().findAny()
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/all")
